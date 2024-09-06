@@ -1,15 +1,16 @@
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
+import dotenv from "dotenv";
 
 // Telegram bot uchun API tokeningizni kiriting
-const token = '7356937368:AAF-9ZFwu-CF9xiBzKzwS7VIQqaDbTfIXyw';  // Telegram bot API tokeningiz
+const token = 'BOT_TOKEN';  // Telegram bot API tokeningiz
 const bot = new TelegramBot(token, { polling: true });
 
 // Kanal ID yoki @username
 const channelUsername = '@susambil_ish';  // O'z kanal username-ni kiriting
 
 // JSON ma'lumotlari saqlanadigan URL
-const dataUrl = 'https://muradcoder.github.io/susmabil_files/data.json';
+const dataUrl = 'DATA_URL';
 
 // jobId bo'yicha qidiruvlar sonini hisoblash uchun obyekt
 const jobIdTracker = {};
@@ -79,10 +80,10 @@ bot.on('message', (msg) => {
                         // Ma'lumotlar bilan javob qaytarish
                         const message = `
 <b>${jobData.titleJob}</b>\n
-<b>Maosh:</b> ${jobData.maosh}\n
-<b>Manzil:</b> ${jobData.manzil}\n
-<b>Ish jadvali:</b> ${jobData.ishJadvali}\n
-<b>Tashkilot:</b> ${jobData.tashkilot}\n
+<b>Maosh:</b> ${jobData.maosh}
+<b>Manzil:</b> ${jobData.manzil}
+<b>Ish jadvali:</b> ${jobData.ishJadvali}
+<b>Tashkilot:</b> ${jobData.tashkilot}
 <b>Aloqa uchun:</b> ${jobData.aloqaUchun} ${jobData.pochta}\n
 <b>№ ${jobData.jobId} / Ishning ID raqami</b>\n
 <b>Batafsil👇</b>\n${jobData.urllink}`;
