@@ -1,16 +1,16 @@
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
-import dotenv from "dotenv";
+require('dotenv').config()
 
 // Telegram bot uchun API tokeningizni kiriting
-const token = 'BOT_TOKEN';  // Telegram bot API tokeningiz
-const bot = new TelegramBot(token, { polling: true });
+// const token = 'BOT_TOKEN';  // Telegram bot API tokeningiz
+const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 
 // Kanal ID yoki @username
 const channelUsername = '@susambil_ish';  // O'z kanal username-ni kiriting
 
 // JSON ma'lumotlari saqlanadigan URL
-const dataUrl = 'DATA_URL';
+const dataUrl = process.env.DATA_URL;
 
 // jobId bo'yicha qidiruvlar sonini hisoblash uchun obyekt
 const jobIdTracker = {};
